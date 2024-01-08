@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <label>Choose a movie genre:</label>
+    <select id="selectMovieGenre">
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+    </select>
+    <p id="showMovieWithGenre"></p>
+
+    <label>Select a weather condition:</label>
+    <select id="selectWeather">
+        <option value="sunny">Sunny</option>
+        <option value="rainy">Rainy</option>
+        <option value="snowy">Snowy</option>
+    </select>
+    <p id="showActivity"></p>
+
+    <label>Select a language: </label>
+    <select id="selectLanguage">
+        <option value="english">English</option>
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+    </select>
+    <button id="displayGreetingBtn">Display Greeting</button>
+    <p id="showGreeting"></p>
+
+    <script>
+        const selectMovieGenre = document.getElementById('selectMovieGenre')
+        const showMovieWithGenre = document.getElementById('showMovieWithGenre')
+
+        selectMovieGenre.addEventListener('change', function () {
+            const movieGenre = selectMovieGenre.value
+            const movieNames = {
+                action: 'John Wick',
+                comedy: 'the Up',
+                drama: 'Sapta sagaradache ello'
+            }
+
+            showMovieWithGenre.textContent = `Recommended ${movieGenre} movie: ${movieNames[movieGenre]}`
+        })
+
+
+        const selectWeather = document.getElementById('selectWeather')
+        const showActivity = document.getElementById('showActivity')
+
+        selectWeather.addEventListener('change', function () {
+            const selectedWeatherValue = selectWeather.value
+            const suggestion = {
+                rainy: 'Movie Day indoors',
+                snowy: 'Build a snowman',
+                sunny: 'Picnic in the park'
+            }
+            showActivity.textContent = `Activity Suggestion: ${suggestion[selectedWeatherValue]}`
+        })
+
+        const selectLanguage = document.getElementById('selectLanguage')
+        const displayGreetingBtn = document.getElementById('displayGreetingBtn')
+        const showGreeting = document.getElementById('showGreeting')
+
+
+        let selectedLanguage;
+        const greetings = {
+            english: 'Hello',
+            spanish: 'Hola',
+            french: 'Bonjour'
+        };
+
+        selectLanguage.addEventListener('change', function () {
+            selectedLanguage = selectLanguage.value
+            console.log(selectedLanguage);
+        })
+
+        displayGreetingBtn.addEventListener('click', function () {
+            showGreeting.textContent = `Common Greeting: ${greetings[selectedLanguage]}!`
+        })
+    </script>
+
+</body>
+
+</html>
