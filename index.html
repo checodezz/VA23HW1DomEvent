@@ -2,89 +2,159 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>replit</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
 </head>
 
 <body>
 
-    <label>Choose a movie genre:</label>
-    <select id="selectMovieGenre">
-        <option value="action">Action</option>
-        <option value="comedy">Comedy</option>
-        <option value="drama">Drama</option>
-    </select>
-    <p id="showMovieWithGenre"></p>
+  <label>Choose a movie genre:</label>
+  <select id="selectMovieGenre">
+    <option value="action">Action</option>
+    <option value="comedy">Comedy</option>
+    <option value="drama">Drama</option>
+  </select>
+  <p id="showMovieWithGenre"></p>
 
-    <label>Select a weather condition:</label>
-    <select id="selectWeather">
-        <option value="sunny">Sunny</option>
-        <option value="rainy">Rainy</option>
-        <option value="snowy">Snowy</option>
-    </select>
-    <p id="showActivity"></p>
+  <label>Select a weather condition:</label>
+  <select id="selectWeather">
+    <option value="sunny">Sunny</option>
+    <option value="rainy">Rainy</option>
+    <option value="snowy">Snowy</option>
+  </select>
+  <p id="showActivity"></p>
 
-    <label>Select a language: </label>
-    <select id="selectLanguage">
-        <option value="english">English</option>
-        <option value="spanish">Spanish</option>
-        <option value="french">French</option>
-    </select>
-    <button id="displayGreetingBtn">Display Greeting</button>
-    <p id="showGreeting"></p>
+  <label>Select a language: </label>
+  <select id="selectLanguage">
+    <option value="english">English</option>
+    <option value="spanish">Spanish</option>
+    <option value="french">French</option>
+  </select>
+  <button id="displayGreetingBtn">Display Greeting</button>
+  <p id="showGreeting"></p>
 
-    <script>
-        const selectMovieGenre = document.getElementById('selectMovieGenre')
-        const showMovieWithGenre = document.getElementById('showMovieWithGenre')
+  <label>Choose a musical Instrument:</label>
+  <select id="selectInstrument">
+    <option value="Piano">Piano</option>
+    <option value="Guitar">Guitar</option>
+    <option value="Violin">Violin</option>
+  </select>
+  <button id="displayFactsBtn">Display Fun Fact</button>
+  <p id="showFunFact"></p>
 
-        selectMovieGenre.addEventListener('change', function () {
-            const movieGenre = selectMovieGenre.value
-            const movieNames = {
-                action: 'John Wick',
-                comedy: 'the Up',
-                drama: 'Sapta sagaradache ello'
-            }
+  <label>Select a pet:</label>
+  <select id="selectPets">
+    <option value="Dog">Dog</option>
+    <option value="Cat">Cat</option>
+    <option value="Fish">Fish</option>
+  </select>
+  <button id="displayPetDescriptionBtn">Display Pet Description</button>
+  <p id="showPetDescription"></p>
 
-            showMovieWithGenre.textContent = `Recommended ${movieGenre} movie: ${movieNames[movieGenre]}`
-        })
+  <script>
+    const selectMovieGenre = document.getElementById('selectMovieGenre')
+    const showMovieWithGenre = document.getElementById('showMovieWithGenre')
 
+    selectMovieGenre.addEventListener('change', function () {
+      const movieGenre = selectMovieGenre.value
+      const movieNames = {
+        action: 'John Wick',
+        comedy: 'the Up',
+        drama: 'Sapta sagaradache ello'
+      }
 
-        const selectWeather = document.getElementById('selectWeather')
-        const showActivity = document.getElementById('showActivity')
-
-        selectWeather.addEventListener('change', function () {
-            const selectedWeatherValue = selectWeather.value
-            const suggestion = {
-                rainy: 'Movie Day indoors',
-                snowy: 'Build a snowman',
-                sunny: 'Picnic in the park'
-            }
-            showActivity.textContent = `Activity Suggestion: ${suggestion[selectedWeatherValue]}`
-        })
-
-        const selectLanguage = document.getElementById('selectLanguage')
-        const displayGreetingBtn = document.getElementById('displayGreetingBtn')
-        const showGreeting = document.getElementById('showGreeting')
+      showMovieWithGenre.textContent = `Recommended ${movieGenre} movie: ${movieNames[movieGenre]}`
+    })
 
 
-        let selectedLanguage;
-        const greetings = {
-            english: 'Hello',
-            spanish: 'Hola',
-            french: 'Bonjour'
-        };
+    const selectWeather = document.getElementById('selectWeather')
+    const showActivity = document.getElementById('showActivity')
 
-        selectLanguage.addEventListener('change', function () {
-            selectedLanguage = selectLanguage.value
-            console.log(selectedLanguage);
-        })
+    selectWeather.addEventListener('change', function () {
+      const selectedWeatherValue = selectWeather.value
+      const suggestion = {
+        rainy: 'Movie Day indoors',
+        snowy: 'Build a snowman',
+        sunny: 'Picnic in the park'
+      }
+      showActivity.textContent = `Activity Suggestion: ${suggestion[selectedWeatherValue]}`
+    })
 
-        displayGreetingBtn.addEventListener('click', function () {
-            showGreeting.textContent = `Common Greeting: ${greetings[selectedLanguage]}!`
-        })
-    </script>
+    const selectLanguage = document.getElementById('selectLanguage')
+    const displayGreetingBtn = document.getElementById('displayGreetingBtn')
+    const showGreeting = document.getElementById('showGreeting')
+
+
+    let selectedLanguage;
+    const greetings = {
+      english: 'Hello',
+      spanish: 'Hola',
+      french: 'Bonjour'
+    };
+
+    selectLanguage.addEventListener('change', function () {
+      selectedLanguage = selectLanguage.value
+      console.log(selectedLanguage);
+    })
+
+    displayGreetingBtn.addEventListener('click', function () {
+      showGreeting.textContent = `Common Greeting: ${greetings[selectedLanguage]}!`
+    })
+
+    const selectInstrument = document.getElementById('selectInstrument')
+    const displayFactsBtn = document.getElementById('displayFactsBtn')
+    const showFunFact = document.getElementById('showFunFact')
+
+    let selectedInstrument;
+    const factsOfInstrument = {
+      piano: "The piano is also known as the 'King of Instruments.'",
+      guitar: "The modern guitar has its roots in Spain and dates back to the 16th century.",
+      violin: "The violin is the smallest and highest-pitched member of the violin family of string instruments."
+    };
+
+    selectInstrument.addEventListener('change', function () {
+      selectedInstrument = selectInstrument.value.toLowerCase()
+      console.log(selectedInstrument);
+    })
+
+    displayFactsBtn.addEventListener('click', function () {
+      showFunFact.textContent = `Fun Fact: ${factsOfInstrument[selectedInstrument]}`
+    })
+
+    /* 
+            <label>Select a pet:</label>
+            <select id="selectPets">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Fish">Fish</option>
+            </select>
+            <button id="displayDescriptionBtn">Display Pet Description</button>
+            <p id="showDescription"></p>
+        */
+
+
+    const selectPets = document.getElementById('selectPets')
+    const displayPetDescriptionBtn = document.getElementById('displayPetDescriptionBtn')
+    const showPetDescription = document.getElementById('showPetDescription')
+
+
+    const descriptionOfPets = {
+      dog: 'Dogs are loyal and friendly companions.',
+      cat: 'Cats are independent and playful, also selfish.',
+      fish: 'Fishes are low-maintainance and peaceful pets'
+    };
+
+    let selectedPets;
+    selectPets.addEventListener('change', function () {
+      selectedPets = selectPets.value.toLowerCase()
+    })
+
+    displayPetDescriptionBtn.addEventListener('click', function () {
+      showPetDescription.textContent = `Pet Description: ${descriptionOfPets[selectedPets]}`
+    })
+  </script>
 
 </body>
 
